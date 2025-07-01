@@ -59,5 +59,65 @@
 </head>
 <body>
   <div id="root"></div>
+  <!-- Floating Actions: Blogs and Contact -->
+  <div style="position: fixed; right: 16px; bottom: 16px; z-index: 9999; display: flex; gap: 12px;">
+    <a href="./blogs.html" class="btn-outline glow-on-hover" style="padding: 10px 14px; border-radius: 8px; color: #fff; text-decoration: none; border: 2px solid rgba(99,102,241,.5); background: #030014cc;">
+      Blogs
+    </a>
+    <button id="open-contact" class="btn-primary glow-on-hover" style="padding: 10px 14px; border-radius: 8px; color: #fff; border: none; background: linear-gradient(45deg,#6366f1,#a855f7);">
+      Contact
+    </button>
+  </div>
+
+  <!-- Contact Modal -->
+  <div id="contact-modal" style="position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.6); z-index: 10000;">
+    <div class="glass" style="width: 100%; max-width: 520px; margin: 16px; border-radius: 12px; padding: 20px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);">
+      <div style="display:flex; align-items:center; justify-content: space-between; margin-bottom: 12px;">
+        <h2 class="text-xl font-semibold text-white">Get in touch</h2>
+        <button id="close-contact" aria-label="Close" class="hover:text-primary" style="background: transparent; border: 0; color: #aaa; font-size: 22px;">×</button>
+      </div>
+      <form id="contact-form" style="display: flex; flex-direction: column; gap: 12px;">
+        <input type="text" name="name" placeholder="Your name" required style="padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.16); background: rgba(3,0,20,0.8); color: #fff;" />
+        <input type="email" name="email" placeholder="Your email" required style="padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.16); background: rgba(3,0,20,0.8); color: #fff;" />
+        <textarea name="message" placeholder="Your message" rows="5" required style="padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.16); background: rgba(3,0,20,0.8); color: #fff; resize: vertical;"></textarea>
+        <div style="display:flex; gap: 10px; justify-content: flex-end; margin-top: 4px;">
+          <button type="button" id="cancel-contact" class="btn-outline" style="padding: 10px 14px; border-radius: 8px; color: #fff; border: 2px solid rgba(99,102,241,.5); background: transparent;">Cancel</button>
+          <button type="submit" class="btn-primary" style="padding: 10px 14px; border-radius: 8px; color: #fff; border: none; background: linear-gradient(45deg,#6366f1,#a855f7);">Send</button>
+        </div>
+      </form>
+      <p class="text-sm text-gray-400" style="margin-top: 10px;">Your message will be sent to <span class="text-primary">rehankaneki@gmail.com</span> via your email client.</p>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      var modal = document.getElementById('contact-modal');
+      var openBtn = document.getElementById('open-contact');
+      var closeBtn = document.getElementById('close-contact');
+      var cancelBtn = document.getElementById('cancel-contact');
+      var form = document.getElementById('contact-form');
+
+      function open(){ modal.style.display = 'flex'; }
+      function close(){ modal.style.display = 'none'; }
+
+      openBtn && openBtn.addEventListener('click', open);
+      closeBtn && closeBtn.addEventListener('click', close);
+      cancelBtn && cancelBtn.addEventListener('click', close);
+      modal && modal.addEventListener('click', function(e){ if(e.target === modal) close(); });
+
+      form && form.addEventListener('submit', function(e){
+        e.preventDefault();
+        var data = new FormData(form);
+        var name = encodeURIComponent(data.get('name'));
+        var from = encodeURIComponent(data.get('email'));
+        var message = encodeURIComponent(data.get('message'));
+        var subject = encodeURIComponent('Portfolio contact from ' + (data.get('name') || 'Visitor'));
+        var body = encodeURIComponent('Name: ' + data.get('name') + '\nEmail: ' + data.get('email') + '\n\n' + data.get('message'));
+        var mailto = 'mailto:rehankaneki@gmail.com?subject=' + subject + '&body=' + body;
+        window.location.href = mailto;
+        setTimeout(close, 300);
+      });
+    })();
+  </script>
 </body>
 </html> 
