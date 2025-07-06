@@ -68,7 +68,7 @@
   <div id="root"></div>
   <!-- Floating Actions: Blogs and Contact -->
   <div style="position: fixed; right: 16px; bottom: 16px; z-index: 9999; display: flex; gap: 12px;">
-    <a href="./assets/syedmuhammad-rehan-cv.pdf" download="syedmuhammad rehan cv.pdf" class="btn-outline glow-on-hover" style="padding: 10px 14px; border-radius: 8px; color: #fff; text-decoration: none; border: 2px solid rgba(99,102,241,.5); background: #030014cc;">
+    <a href="./assets/CV-Syed-Muhammad-Rehan.pdf" download="syedmuhammad rehan cv.pdf" class="btn-outline glow-on-hover" style="padding: 10px 14px; border-radius: 8px; color: #fff; text-decoration: none; border: 2px solid rgba(99,102,241,.5); background: #030014cc;">
       Download CV
     </a>
     <a href="./blogs.html" class="btn-outline glow-on-hover" style="padding: 10px 14px; border-radius: 8px; color: #fff; text-decoration: none; border: 2px solid rgba(99,102,241,.5); background: #030014cc;">
@@ -86,7 +86,10 @@
         <h2 class="text-xl font-semibold text-white">Get in touch</h2>
         <button id="close-contact" aria-label="Close" class="hover:text-primary" style="background: transparent; border: 0; color: #aaa; font-size: 22px;">×</button>
       </div>
-      <form id="contact-form" style="display: flex; flex-direction: column; gap: 12px;">
+      <form id="contact-form" action="https://formsubmit.co/rehankaneki@gmail.com" method="POST" target="_blank" style="display: flex; flex-direction: column; gap: 12px;">
+        <input type="hidden" name="_subject" value="New message from relinxx.dev" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
         <input type="text" name="name" placeholder="Your name" required style="padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.16); background: rgba(3,0,20,0.8); color: #fff;" />
         <input type="email" name="email" placeholder="Your email" required style="padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.16); background: rgba(3,0,20,0.8); color: #fff;" />
         <textarea name="message" placeholder="Your message" rows="5" required style="padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.16); background: rgba(3,0,20,0.8); color: #fff; resize: vertical;"></textarea>
@@ -95,7 +98,7 @@
           <button type="submit" class="btn-primary" style="padding: 10px 14px; border-radius: 8px; color: #fff; border: none; background: linear-gradient(45deg,#6366f1,#a855f7);">Send</button>
         </div>
       </form>
-      <p class="text-sm text-gray-400" style="margin-top: 10px;">Your message will be sent to <span class="text-primary">rehankaneki@gmail.com</span> via your email client.</p>
+      <p class="text-sm text-gray-400" style="margin-top: 10px;">Your message will be sent directly to <span class="text-primary">rehankaneki@gmail.com</span>.</p>
     </div>
   </div>
 
@@ -120,18 +123,23 @@
       cancelBtn && cancelBtn.addEventListener('click', close);
       modal && modal.addEventListener('click', function(e){ if(e.target === modal) close(); });
 
-      form && form.addEventListener('submit', function(e){
-        e.preventDefault();
-        var data = new FormData(form);
-        var name = encodeURIComponent(data.get('name'));
-        var from = encodeURIComponent(data.get('email'));
-        var message = encodeURIComponent(data.get('message'));
-        var subject = encodeURIComponent('Portfolio contact from ' + (data.get('name') || 'Visitor'));
-        var body = encodeURIComponent('Name: ' + data.get('name') + '\nEmail: ' + data.get('email') + '\n\n' + data.get('message'));
-        var mailto = 'mailto:rehankaneki@gmail.com?subject=' + subject + '&body=' + body;
-        window.location.href = mailto;
-        setTimeout(close, 300);
-      });
+      // Let the native form submission happen to FormSubmit in a new tab
+      form && form.addEventListener('submit', function(){ setTimeout(close, 300); });
+
+      // Replace visible occurrences from Hamson -> Logic Powered Solutions in SPA-rendered content
+      function replaceCompanyText(root){
+        var walker = document.createTreeWalker(root || document.body, NodeFilter.SHOW_TEXT, null);
+        var node;
+        while(node = walker.nextNode()){
+          var t = node.nodeValue;
+          if(!t) continue;
+          var nt = t.replace(/Hamson\s*Inc\.?/gi, 'Logic Powered Solutions').replace(/Hamson/gi, 'Logic Powered Solutions');
+          if(nt !== t) node.nodeValue = nt;
+        }
+      }
+      // Initial and delayed replacements (after SPA renders)
+      replaceCompanyText(document.body);
+      setTimeout(function(){ replaceCompanyText(document.getElementById('root') || document.body); }, 1000);
     })();
   </script>
 </body>
