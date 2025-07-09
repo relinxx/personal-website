@@ -8,8 +8,8 @@
   <!-- Primary Meta Tags -->
   <title>Syed Muhammad Rehan (@relinxx) – AI/ML Intern & Full Stack Developer</title>
   <meta name="title" content="Syed Muhammad Rehan (@relinxx) – AI/ML Intern & Full Stack Developer" />
-  <meta name="description" content="AI/ML Intern at Logic Powered Solutions Inc. and FAST-NUCES student specializing in Python, C++, Java, Docker, Kubernetes, RAG, GenAI, LLMs, and full-stack development." />
-  <meta name="keywords" content="Syed Muhammad Rehan, relinxx, AI/ML, Python, C++, Java, Docker, Kubernetes, RAG, GenAI, LLMs, Full Stack Developer, Logic Powered Solutions Inc, FAST-NUCES" />
+  <meta name="description" content="AI/ML Intern at Logic Powered Solutions and FAST-NUCES student. Previously at Hamson Inc. Specializing in Python, C++, Java, Docker, Kubernetes, RAG, GenAI, LLMs, and full-stack development." />
+  <meta name="keywords" content="Syed Muhammad Rehan, relinxx, AI/ML, Python, C++, Java, Docker, Kubernetes, RAG, GenAI, LLMs, Full Stack Developer, Logic Powered Solutions, FAST-NUCES, Hamson Inc" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="theme-color" content="#030014" />
@@ -20,14 +20,14 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://relinxx.dev/" />
   <meta property="og:title" content="Syed Muhammad Rehan (@relinxx) – AI/ML Intern & Full Stack Developer" />
-  <meta property="og:description" content="AI/ML Intern at Hamson Inc. and FAST-NUCES student specializing in Python, C++, Java, Docker, Kubernetes, RAG, GenAI, LLMs, and full-stack development." />
+  <meta property="og:description" content="AI/ML Intern at Logic Powered Solutions (previously at Hamson Inc). FAST-NUCES student specializing in Python, C++, Java, Docker, Kubernetes, RAG, GenAI, LLMs, and full-stack development." />
   <meta property="og:image" content="./assets/profile_pic-CaSYlVwb.png" />
 
   <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://relinxx.dev/" />
   <meta name="twitter:title" content="Syed Muhammad Rehan (@relinxx) – AI/ML Intern & Full Stack Developer" />
-  <meta name="twitter:description" content="AI/ML Intern at Hamson Inc. and FAST-NUCES student specializing in Python, C++, Java, Docker, Kubernetes, RAG, GenAI, LLMs, and full-stack development." />
+  <meta name="twitter:description" content="AI/ML Intern at Logic Powered Solutions (previously at Hamson Inc). FAST-NUCES student specializing in Python, C++, Java, Docker, Kubernetes, RAG, GenAI, LLMs, and full-stack development." />
   <meta name="twitter:image" content="./assets/profile_pic-CaSYlVwb.png" />
 
   <!-- Structured Data JSON-LD -->
@@ -40,7 +40,7 @@
     "jobTitle": "AI/ML Intern",
     "worksFor": {
       "@type": "Organization",
-      "name": "Logic Powered Solutions."
+      "name": "Logic Powered Solutions"
     },
     "alumniOf": {
       "@type": "Organization",
@@ -58,9 +58,19 @@
   <link rel="stylesheet" crossorigin href="/assets/index-xkXt_TeG.css">
 </head>
 <body>
+  <!-- Employment update banner -->
+  <div id="notice-banner" style="position: fixed; top: 0; left: 0; right: 0; z-index: 10001;">
+    <div class="bg-background/95" style="display:flex; align-items:center; justify-content:center; gap:12px; padding:10px 14px; border-bottom:1px solid rgba(255,255,255,0.08);">
+      <p class="text-sm text-gray-300">Previously at Hamson Inc — now working at <span class="text-primary">Logic Powered Solutions</span>.</p>
+      <button id="dismiss-banner" class="text-xs hover:text-primary" style="background:transparent; border:0; color:#aaa;">Dismiss</button>
+    </div>
+  </div>
   <div id="root"></div>
   <!-- Floating Actions: Blogs and Contact -->
   <div style="position: fixed; right: 16px; bottom: 16px; z-index: 9999; display: flex; gap: 12px;">
+    <a href="./assets/syedmuhammad-rehan-cv.pdf" download="syedmuhammad rehan cv.pdf" class="btn-outline glow-on-hover" style="padding: 10px 14px; border-radius: 8px; color: #fff; text-decoration: none; border: 2px solid rgba(99,102,241,.5); background: #030014cc;">
+      Download CV
+    </a>
     <a href="./blogs.html" class="btn-outline glow-on-hover" style="padding: 10px 14px; border-radius: 8px; color: #fff; text-decoration: none; border: 2px solid rgba(99,102,241,.5); background: #030014cc;">
       Blogs
     </a>
@@ -91,6 +101,11 @@
 
   <script>
     (function(){
+      // Notice banner dismiss
+      var banner = document.getElementById('notice-banner');
+      var dismiss = document.getElementById('dismiss-banner');
+      dismiss && dismiss.addEventListener('click', function(){ banner && (banner.style.display = 'none'); });
+
       var modal = document.getElementById('contact-modal');
       var openBtn = document.getElementById('open-contact');
       var closeBtn = document.getElementById('close-contact');
