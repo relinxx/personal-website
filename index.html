@@ -56,6 +56,7 @@
   </script>
   <script type="module" crossorigin src="/assets/index-C4mYjw5h.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-xkXt_TeG.css">
+  <script defer src="/assets/page.js"></script>
 </head>
 <body>
   <!-- Employment update banner -->
@@ -102,52 +103,6 @@
     </div>
   </div>
 
-  <script>
-    (function(){
-      // Notice banner dismiss
-      var banner = document.getElementById('notice-banner');
-      var dismiss = document.getElementById('dismiss-banner');
-      dismiss && dismiss.addEventListener('click', function(){ banner && (banner.style.display = 'none'); });
-
-      var modal = document.getElementById('contact-modal');
-      var openBtn = document.getElementById('open-contact');
-      var closeBtn = document.getElementById('close-contact');
-      var cancelBtn = document.getElementById('cancel-contact');
-      var form = document.getElementById('contact-form');
-
-      function open(){ modal.style.display = 'flex'; }
-      function close(){ modal.style.display = 'none'; }
-
-      openBtn && openBtn.addEventListener('click', open);
-      closeBtn && closeBtn.addEventListener('click', close);
-      cancelBtn && cancelBtn.addEventListener('click', close);
-      modal && modal.addEventListener('click', function(e){ if(e.target === modal) close(); });
-
-      // Let the native form submission happen to FormSubmit in a new tab
-      form && form.addEventListener('submit', function(){ setTimeout(close, 300); });
-
-      // Replace visible occurrences from Hamson -> Logic Powered Solutions in SPA-rendered content
-      function replaceCompanyText(root){
-        var walker = document.createTreeWalker(root || document.body, NodeFilter.SHOW_TEXT, null);
-        var node;
-        while(node = walker.nextNode()){
-          var t = node.nodeValue;
-          if(!t) continue;
-          var nt = t.replace(/Hamson\s*Inc\.?/gi, 'Logic Powered Solutions').replace(/Hamson/gi, 'Logic Powered Solutions');
-          if(nt !== t) node.nodeValue = nt;
-        }
-      }
-      // Initial and delayed replacements (after SPA renders)
-      replaceCompanyText(document.body);
-      setTimeout(function(){ replaceCompanyText(document.getElementById('root') || document.body); }, 1000);
-
-      // Observe SPA mutations and replace dynamically
-      var rootEl = document.getElementById('root') || document.body;
-      try{
-        var mo = new MutationObserver(function(){ replaceCompanyText(rootEl); });
-        mo.observe(rootEl, { childList: true, subtree: true, characterData: true });
-      }catch(err){ /* no-op */ }
-    })();
-  </script>
+  
 </body>
 </html> 
