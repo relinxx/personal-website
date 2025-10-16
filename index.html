@@ -140,6 +140,13 @@
       // Initial and delayed replacements (after SPA renders)
       replaceCompanyText(document.body);
       setTimeout(function(){ replaceCompanyText(document.getElementById('root') || document.body); }, 1000);
+
+      // Observe SPA mutations and replace dynamically
+      var rootEl = document.getElementById('root') || document.body;
+      try{
+        var mo = new MutationObserver(function(){ replaceCompanyText(rootEl); });
+        mo.observe(rootEl, { childList: true, subtree: true, characterData: true });
+      }catch(err){ /* no-op */ }
     })();
   </script>
 </body>
