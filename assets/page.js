@@ -30,12 +30,23 @@
     var closeBtn = document.getElementById('close-contact');
     var cancelBtn = document.getElementById('cancel-contact');
     var form = document.getElementById('contact-form');
+    var lastFocused = null;
 
     function open() {
       modal.style.display = 'flex';
+      modal.setAttribute('aria-hidden', 'false');
+      if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
+      lastFocused = document.activeElement;
+      var firstField = form && form.querySelector('input, textarea, button');
+      if (firstField) firstField.focus();
     }
     function close() {
       modal.style.display = 'none';
+      modal.setAttribute('aria-hidden', 'true');
+      if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
+      if (lastFocused && typeof lastFocused.focus === 'function') {
+        lastFocused.focus();
+      }
     }
 
     openBtn && openBtn.addEventListener('click', open);
