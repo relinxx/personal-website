@@ -55,6 +55,11 @@
     modal.addEventListener('click', function (e) {
       if (e.target === modal) close();
     });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.style.display === 'flex') {
+        close();
+      }
+    });
     form && form.addEventListener('submit', function () {
       // Let native submission occur (FormSubmit), then close soon after
       setTimeout(close, 300);
