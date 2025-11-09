@@ -18,7 +18,10 @@
     var dismiss = document.getElementById('dismiss-banner');
     if (banner && dismiss) {
       dismiss.addEventListener('click', function () {
-        banner.style.display = 'none';
+        banner.style.opacity = '0';
+        setTimeout(function () {
+          banner.style.display = 'none';
+        }, 300);
       });
     }
   }
