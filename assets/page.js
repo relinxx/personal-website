@@ -34,6 +34,7 @@
     var cancelBtn = document.getElementById('cancel-contact');
     var form = document.getElementById('contact-form');
     var lastFocused = null;
+    var submitBtn = form && form.querySelector('button[type="submit"]');
 
     function open() {
       modal.style.display = 'flex';
@@ -64,6 +65,10 @@
       }
     });
     form && form.addEventListener('submit', function () {
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
       // Let native submission occur (FormSubmit), then close soon after
       setTimeout(close, 300);
     });
