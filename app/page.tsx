@@ -69,7 +69,7 @@ export default function Home() {
         <div className="hero-visual">
           <div className="portrait-frame">
             <Image
-              src="/rehan-profile.png"
+              src="/rehan-profile-suit.png"
               alt="Portrait of Syed Muhammad Rehan"
               width={546}
               height={540}
