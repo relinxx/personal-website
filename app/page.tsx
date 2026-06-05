@@ -4,6 +4,7 @@ import {
   ArrowDown,
   ArrowRight,
   ArrowUpRight,
+  Award,
   BriefcaseBusiness,
   CheckCircle2,
   Download,
@@ -15,6 +16,7 @@ import {
 } from "@/components/icons";
 import { ProjectCard } from "@/components/project-card";
 import {
+  certifications,
   education,
   experiences,
   profile,
@@ -188,6 +190,58 @@ export default function Home() {
           </div>
           <p>{education.project}</p>
         </article>
+      </section>
+
+      <section className="section shell" id="certificates">
+        <div className="section-heading compact">
+          <div>
+            <p className="eyebrow">Certificates</p>
+            <h2>Fresh proof of cloud and automation focus.</h2>
+          </div>
+          <p>
+            Official LinkedIn Learning credentials connected to the same themes I
+            build around: Azure, cloud delivery, and workflow automation.
+          </p>
+        </div>
+
+        <div className="certification-grid">
+          {certifications.map((certificate) => (
+            <article className="certification-card" key={certificate.credentialId}>
+              <div className="certification-icon" aria-hidden="true">
+                <Award size={22} />
+              </div>
+              <div>
+                <p className="eyebrow">{certificate.issuer}</p>
+                <h3>{certificate.title}</h3>
+                <p className="certificate-note">{certificate.note}</p>
+              </div>
+              <dl className="certificate-meta">
+                <div>
+                  <dt>Completed</dt>
+                  <dd>{certificate.completed}</dd>
+                </div>
+                <div>
+                  <dt>Duration</dt>
+                  <dd>{certificate.duration}</dd>
+                </div>
+              </dl>
+              <ul className="tag-list" aria-label={`${certificate.title} skills`}>
+                {certificate.skills.map((skill) => (
+                  <li key={skill}>{skill}</li>
+                ))}
+              </ul>
+              <a
+                className="certificate-link"
+                href={certificate.credentialUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                View official credential
+                <ArrowUpRight aria-hidden="true" size={15} />
+              </a>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="section shell" id="contact">

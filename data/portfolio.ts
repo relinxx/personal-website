@@ -28,6 +28,17 @@ export type Project = {
   featured: boolean;
 };
 
+export type Certification = {
+  title: string;
+  issuer: string;
+  completed: string;
+  duration: string;
+  skills: string[];
+  credentialUrl: string;
+  credentialId: string;
+  note: string;
+};
+
 export const profile = {
   name: "Syed Muhammad Rehan",
   handle: "@relinxx",
@@ -293,6 +304,33 @@ export const skillGroups = [
     ],
   },
 ] as const;
+
+export const certifications: Certification[] = [
+  {
+    title: "Microsoft Azure Essentials Professional Certificate",
+    issuer: "Microsoft and LinkedIn Learning",
+    completed: "June 5, 2026",
+    duration: "2h 34m",
+    skills: ["Microsoft Azure", "Cloud Computing"],
+    credentialUrl:
+      "https://www.linkedin.com/learning/certificates/dfd95eeb61cbb47d2c8a183435e7b572880941e181033022db369a91820f5152",
+    credentialId:
+      "dfd95eeb61cbb47d2c8a183435e7b572880941e181033022db369a91820f5152",
+    note: "Learning path completion credential issued through LinkedIn Learning.",
+  },
+  {
+    title: "Practical GitHub Actions",
+    issuer: "LinkedIn Learning",
+    completed: "June 5, 2026",
+    duration: "1h 20m",
+    skills: ["GitHub", "Workflow Automation", "GitHub Actions"],
+    credentialUrl:
+      "https://www.linkedin.com/learning/certificates/424f978825888f35e94c41459f8375019c8f73fd6d5a843950f0fad6a602210d",
+    credentialId:
+      "424f978825888f35e94c41459f8375019c8f73fd6d5a843950f0fad6a602210d",
+    note: "Course completion credential by Ray Villalobos through LinkedIn Learning.",
+  },
+];
 
 export const education = {
   school: "FAST University",
