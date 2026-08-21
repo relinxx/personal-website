@@ -6,17 +6,18 @@ import {
   ArrowUpRight,
   Award,
   BriefcaseBusiness,
-  CheckCircle2,
   Download,
   Github,
   Linkedin,
   Mail,
   MapPin,
-  Sparkles,
 } from "@/components/icons";
+import { FocusPanel } from "@/components/focus-panel";
+import { PortfolioEffects } from "@/components/portfolio-effects";
 import { ProjectCard } from "@/components/project-card";
 import {
   certifications,
+  deliverySteps,
   education,
   experiences,
   profile,
@@ -28,17 +29,19 @@ import {
 export default function Home() {
   return (
     <main id="main-content">
-      <section className="hero shell">
+      <PortfolioEffects />
+      <section className="hero shell" data-reveal>
         <div className="hero-copy">
           <p className="availability-pill">
             <span aria-hidden="true" />
-            Open to AI engineering opportunities
+            Open to systems automation &amp; client-facing engineering roles
           </p>
           <p className="hero-kicker">{profile.role}</p>
-          <h1>
-            Building AI systems that move from
-            <span> promising to production.</span>
-          </h1>
+          <h1>{profile.name}</h1>
+          <p className="hero-position">
+            I build <span>reliable workflows, integrations, and AI systems</span> from
+            brief to handover.
+          </p>
           <p className="hero-summary">{profile.summary}</p>
 
           <div className="hero-actions">
@@ -69,27 +72,11 @@ export default function Home() {
         </div>
 
         <div className="hero-visual">
-          <div className="portrait-frame">
-            <Image
-              src="/rehan-profile-suit.png"
-              alt="Portrait of Syed Muhammad Rehan"
-              width={546}
-              height={540}
-              priority
-            />
-            <div className="portrait-tag portrait-tag-top">
-              <Sparkles aria-hidden="true" size={16} />
-              RAG + AI agents
-            </div>
-            <div className="portrait-tag portrait-tag-bottom">
-              <CheckCircle2 aria-hidden="true" size={16} />
-              Client-facing delivery
-            </div>
-          </div>
+          <FocusPanel />
         </div>
       </section>
 
-      <section className="proof-strip" aria-label="Professional proof points">
+      <section className="proof-strip" aria-label="Professional proof points" data-reveal>
         <div className="shell proof-grid">
           {proofPoints.map((point) => (
             <div key={point.value}>
@@ -100,11 +87,36 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section shell" id="work">
+      <section className="section shell" id="delivery" data-reveal>
+        <div className="section-heading compact">
+          <div>
+            <p className="eyebrow">Delivery approach</p>
+            <h2>From an unclear workflow to an operating system.</h2>
+          </div>
+          <p>
+            I work across the full implementation path, including the client
+            conversations that turn business needs into testable technical decisions.
+          </p>
+        </div>
+
+        <ol className="delivery-grid">
+          {deliverySteps.map((step) => (
+            <li className="delivery-step" data-reveal key={step.number}>
+              <span>{step.number}</span>
+              <div>
+                <h3>{step.title}</h3>
+                <p>{step.detail}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="section shell" id="work" data-reveal>
         <div className="section-heading">
           <div>
-            <p className="eyebrow">Selected work</p>
-            <h2>Systems built around real problems.</h2>
+            <p className="eyebrow">Automation &amp; integration work</p>
+            <h2>Systems designed around the whole workflow.</h2>
           </div>
           <p>
             Client work is described without exposing private source code or data. Public
@@ -115,27 +127,28 @@ export default function Home() {
         <div className="project-grid">
           {projects
             .filter((project) => project.featured)
+            .sort((a, b) => (a.featuredOrder ?? 99) - (b.featuredOrder ?? 99))
             .map((project, index) => (
               <ProjectCard index={index} key={project.slug} project={project} />
             ))}
         </div>
       </section>
 
-      <section className="section section-contained shell" id="experience">
+      <section className="section section-contained shell" id="experience" data-reveal>
         <div className="section-heading compact">
           <div>
             <p className="eyebrow">Experience</p>
-            <h2>Production ownership, with the conversations included.</h2>
+            <h2>Technical ownership, with the client conversations included.</h2>
           </div>
           <p>
-            My strongest work sits at the intersection of backend engineering, applied AI,
-            cloud delivery, and explaining the system clearly to the people using it.
+            My strongest work sits at the intersection of systems integration, backend
+            engineering, automation, applied AI, and clear stakeholder communication.
           </p>
         </div>
 
         <div className="timeline">
           {experiences.map((experience) => (
-            <article className="timeline-item" key={`${experience.company}-${experience.role}`}>
+            <article className="timeline-item" data-reveal key={`${experience.company}-${experience.role}`}>
               <div className="timeline-meta">
                 <span>{experience.period}</span>
                 <span>{experience.location}</span>
@@ -155,21 +168,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section shell" id="skills">
+      <section className="section shell" id="skills" data-reveal>
         <div className="section-heading compact">
           <div>
             <p className="eyebrow">Capabilities</p>
-            <h2>A practical stack for shipping AI products.</h2>
+            <h2>A practical stack for connected, reliable operations.</h2>
           </div>
           <p>
-            No percentage bars. These are the tools and disciplines I have used across
-            professional work, delivery, and serious projects.
+            These are tools and disciplines I have used across professional delivery and
+            substantial applied projects.
           </p>
         </div>
 
         <div className="skill-grid">
           {skillGroups.map((group) => (
-            <article className="skill-card" key={group.title}>
+            <article className="skill-card" data-reveal key={group.title}>
               <h3>{group.title}</h3>
               <ul>
                 {group.skills.map((skill) => (
@@ -180,7 +193,7 @@ export default function Home() {
           ))}
         </div>
 
-        <article className="education-card">
+        <article className="education-card" data-reveal>
           <div>
             <p className="eyebrow">Education</p>
             <h3>{education.degree}</h3>
@@ -192,7 +205,7 @@ export default function Home() {
         </article>
       </section>
 
-      <section className="section shell" id="certificates">
+      <section className="section shell" id="certificates" data-reveal>
         <div className="section-heading compact">
           <div>
             <p className="eyebrow">Certificates</p>
@@ -206,10 +219,26 @@ export default function Home() {
 
         <div className="certification-grid">
           {certifications.map((certificate) => (
-            <article className="certification-card" key={certificate.credentialId}>
-              <div className="certification-icon" aria-hidden="true">
-                <Award size={22} />
-              </div>
+            <article className="certification-card" data-reveal key={certificate.credentialId}>
+              <a
+                className="certificate-preview"
+                href={certificate.credentialUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`View the official ${certificate.title} credential`}
+              >
+                <Image
+                  src={certificate.image}
+                  alt={`${certificate.title} certificate awarded to Syed Muhammad Rehan`}
+                  width={1280}
+                  height={989}
+                  sizes="(max-width: 760px) 100vw, 50vw"
+                />
+                <span>
+                  <Award aria-hidden="true" size={16} />
+                  View certificate
+                </span>
+              </a>
               <div>
                 <p className="eyebrow">{certificate.issuer}</p>
                 <h3>{certificate.title}</h3>
@@ -244,14 +273,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section shell" id="contact">
+      <section className="section shell" id="contact" data-reveal>
         <div className="contact-card">
           <div>
             <p className="eyebrow">Let&apos;s build something useful</p>
-            <h2>Need an AI system that works beyond the demo?</h2>
+            <h2>Need a system that is useful after the demo?</h2>
             <p>
-              I&apos;m open to full-time AI engineering roles and focused freelance work
-              involving RAG, AI agents, NL2SQL, automation, or Python backends.
+              I&apos;m open to full-time roles involving workflow automation, API
+              integrations, client systems, applied AI, and Python or Node.js backends.
             </p>
           </div>
           <div className="contact-actions">
