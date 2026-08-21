@@ -1,10 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "@/components/icons";
 import type { Project } from "@/data/portfolio";
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
-    <article className="project-card">
+    <article className="project-card" data-reveal>
       <div className="project-number" aria-hidden="true">
         0{index + 1}
       </div>
@@ -17,6 +18,22 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           {project.status}
         </span>
       </div>
+
+      {project.image ? (
+        <Link
+          className="project-media"
+          href={`/projects/${project.slug}`}
+          aria-label={`View ${project.title} case study`}
+        >
+          <Image
+            src={project.image}
+            alt={project.imageAlt ?? `${project.title} system overview`}
+            width={1600}
+            height={900}
+            sizes="(max-width: 700px) 100vw, 50vw"
+          />
+        </Link>
+      ) : null}
 
       <p className="project-summary">{project.summary}</p>
 
@@ -31,13 +48,22 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           View case study
           <ArrowRight aria-hidden="true" size={16} />
         </Link>
-        {project.repository ? (
+        {project.demo ? (
+          <a href={project.demo} target="_blank" rel="noreferrer">
+            Live product
+            <ArrowUpRight aria-hidden="true" size={15} />
+          </a>
+        ) : project.repository ? (
           <a href={project.repository} target="_blank" rel="noreferrer">
             GitHub
             <ArrowUpRight aria-hidden="true" size={15} />
           </a>
         ) : (
-          <span>Source not public</span>
+          <span>
+            {project.status === "Automation workflow"
+              ? "Workflow documented"
+              : "Source not public"}
+          </span>
         )}
       </div>
     </article>

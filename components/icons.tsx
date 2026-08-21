@@ -8,7 +8,9 @@ import {
   Download,
   Mail,
   MapPin,
+  Moon,
   Sparkles,
+  Sun,
 } from "lucide-react";
 import type { SVGProps } from "react";
 
@@ -52,5 +54,7 @@ export {
   Download,
   Mail,
   MapPin,
+  Moon,
   Sparkles,
+  Sun,
 };

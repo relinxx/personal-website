@@ -21,13 +21,19 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Syed Muhammad Rehan | AI-focused Software Engineer",
+    default: "Syed Muhammad Rehan | Systems, Automation & AI Engineer",
     template: "%s | Syed Muhammad Rehan",
   },
   description:
-    "AI-focused Software Engineer building production RAG systems, AI agents, NL2SQL workflows, and Azure-deployed applications.",
+    "Systems, automation, and AI software engineer building n8n workflows, API integrations, data systems, and client-ready applications.",
   keywords: [
     "Syed Muhammad Rehan",
+    "Systems Automation Engineer",
+    "Workflow Automation",
+    "n8n",
+    "API Integration",
+    "Webhooks",
+    "Client Solutions Engineer",
     "AI Engineer",
     "RAG Engineer",
     "Agentic AI",
@@ -44,16 +50,16 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/",
     siteName: "Syed Muhammad Rehan",
-    title: "Syed Muhammad Rehan | AI-focused Software Engineer",
+    title: "Syed Muhammad Rehan | Systems, Automation & AI Engineer",
     description:
-      "Production RAG systems, AI agents, NL2SQL workflows, and Azure-deployed applications.",
+      "Workflow automation, API integrations, client systems, and applied AI delivered from discovery through handover.",
     images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Syed Muhammad Rehan | AI-focused Software Engineer",
+    title: "Syed Muhammad Rehan | Systems, Automation & AI Engineer",
     description:
-      "Production RAG systems, AI agents, NL2SQL workflows, and Azure-deployed applications.",
+      "Workflow automation, API integrations, client systems, and applied AI delivered from discovery through handover.",
     images: ["/opengraph-image"],
   },
   icons: {
@@ -83,6 +89,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     url: siteUrl,
     sameAs: [profile.links.github, profile.links.linkedin],
     knowsAbout: [
+      "Workflow Automation",
+      "n8n",
+      "REST API Integration",
+      "Webhooks",
+      "Client Systems Delivery",
       "Retrieval-Augmented Generation",
       "AI Agents",
       "Natural Language to SQL",
@@ -98,8 +109,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>
-        <div className="ambient ambient-one" aria-hidden="true" />
-        <div className="ambient ambient-two" aria-hidden="true" />
         <SiteHeader />
         {children}
         <SiteFooter />

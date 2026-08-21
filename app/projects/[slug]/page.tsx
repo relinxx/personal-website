@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -63,10 +64,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <div className="case-status">
             <span>{project.status}</span>
             <p>
-              {project.repository
-                ? "Public source is available. A polished demo will be added after deployment and security review."
+              {project.demo
+                  ? "The deployed product is available publicly. Its case study documents the system without exposing credentials or private data."
+                : project.repository
+                  ? "Public source is available. The case study focuses on the engineering decisions and production concerns."
                 : "This work is documented without exposing private source code, credentials, or client data."}
             </p>
+            {project.demo && (
+              <a href={project.demo} target="_blank" rel="noreferrer">
+                View live product
+                <ArrowUpRight aria-hidden="true" size={15} />
+              </a>
+            )}
             {project.repository && (
               <a href={project.repository} target="_blank" rel="noreferrer">
                 <Github aria-hidden="true" size={17} />
@@ -76,6 +85,22 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             )}
           </div>
         </header>
+
+        {project.image ? (
+          <figure className="case-visual">
+            <Image
+              src={project.image}
+              alt={project.imageAlt ?? `${project.title} system overview`}
+              width={1920}
+              height={1080}
+              sizes="(max-width: 700px) 100vw, 1200px"
+              priority
+            />
+            <figcaption>
+              System view shared without credentials, private payloads, or client data.
+            </figcaption>
+          </figure>
+        ) : null}
 
         <div className="case-grid">
           <section className="case-panel">
@@ -133,7 +158,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </section>
 
         <div className="case-next">
-          <p>Looking for a production-minded AI engineer?</p>
+          <p>Looking for an engineer who can own the workflow and the handover?</p>
           <a href="mailto:rehankaneki@gmail.com">
             Start a conversation
             <ArrowUpRight aria-hidden="true" size={16} />

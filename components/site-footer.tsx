@@ -10,7 +10,7 @@ export function SiteFooter() {
           <Link className="footer-name" href="/">
             Syed Muhammad Rehan
           </Link>
-          <p>AI-focused Software Engineer in Rawalpindi, Pakistan.</p>
+          <p>Systems, Automation &amp; AI Software Engineer in Rawalpindi, Pakistan.</p>
         </div>
         <div className="social-links" aria-label="Social links">
           <a href={profile.links.email} aria-label="Email Syed Muhammad Rehan">
@@ -33,7 +33,7 @@ export function SiteFooter() {
             <Github aria-hidden="true" size={18} />
           </a>
         </div>
-        <p className="copyright">© {new Date().getFullYear()} Rehan. Built with Next.js.</p>
+        <p className="copyright">Copyright {new Date().getFullYear()} Rehan. Built with Next.js.</p>
       </div>
     </footer>
   );
