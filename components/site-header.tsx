@@ -15,8 +15,7 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="shell header-inner">
         <Link className="wordmark" href="/" aria-label="Syed Muhammad Rehan home">
-          <strong>SMR</strong>
-          <span>AI systems &amp; automation</span>
+          <strong>{profile.name}</strong>
         </Link>
 
         <nav className="desktop-nav" aria-label="Primary navigation">

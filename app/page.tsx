@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowDown,
@@ -33,15 +32,6 @@ export default function Home() {
       <PortfolioEffects />
 
       <section className="hero" id="top">
-        <Image
-          className="hero-background"
-          src="/projects/multi-agent-rag-research-pipeline.png"
-          alt="Multi-agent research automation workflow built in n8n"
-          fill
-          loading="eager"
-          sizes="100vw"
-        />
-        <div className="hero-overlay" aria-hidden="true" />
         <div className="shell hero-inner">
           <div className="hero-copy">
             <p className="availability-line">
@@ -83,10 +73,6 @@ export default function Home() {
             </div>
           </div>
 
-          <p className="hero-caption">
-            Featured system: multi-agent research automation with retrieval,
-            evaluation, revision, persistence, and monitored failure paths.
-          </p>
         </div>
       </section>
 
