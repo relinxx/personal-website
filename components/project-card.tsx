@@ -5,18 +5,45 @@ import type { Project } from "@/data/portfolio";
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
-    <article className="project-card" data-reveal>
-      <div className="project-number" aria-hidden="true">
+    <article className={`project-row${project.image ? "" : " project-row-text"}`}>
+      <span className="project-index" aria-hidden="true">
         0{index + 1}
-      </div>
-      <div className="project-card-top">
-        <div>
-          <p className="eyebrow">{project.eyebrow}</p>
-          <h3>{project.title}</h3>
+      </span>
+
+      <div className="project-content">
+        <div className="project-heading">
+          <div>
+            <p className="eyebrow">{project.eyebrow}</p>
+            <h3>{project.title}</h3>
+          </div>
+          <span className="project-status">{project.status}</span>
         </div>
-        <span className={`status-badge status-${project.status.toLowerCase().replace(" ", "-")}`}>
-          {project.status}
-        </span>
+
+        <p className="project-summary">{project.summary}</p>
+
+        <ul className="tag-list" aria-label={`${project.title} technologies`}>
+          {project.stack.slice(0, 6).map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+
+        <div className="project-links">
+          <Link href={`/projects/${project.slug}`}>
+            Case study
+            <ArrowRight aria-hidden="true" size={16} />
+          </Link>
+          {project.demo ? (
+            <a href={project.demo} target="_blank" rel="noreferrer">
+              Live product
+              <ArrowUpRight aria-hidden="true" size={15} />
+            </a>
+          ) : project.repository ? (
+            <a href={project.repository} target="_blank" rel="noreferrer">
+              Repository
+              <ArrowUpRight aria-hidden="true" size={15} />
+            </a>
+          ) : null}
+        </div>
       </div>
 
       {project.image ? (
@@ -27,45 +54,22 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         >
           <Image
             src={project.image}
-            alt={project.imageAlt ?? `${project.title} system overview`}
+            alt={project.imageAlt ?? `${project.title} interface`}
             width={1600}
             height={900}
-            sizes="(max-width: 700px) 100vw, 50vw"
+            sizes="(max-width: 760px) 100vw, 44vw"
           />
         </Link>
-      ) : null}
-
-      <p className="project-summary">{project.summary}</p>
-
-      <ul className="tag-list" aria-label={`${project.title} technologies`}>
-        {project.stack.slice(0, 5).map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-
-      <div className="project-links">
-        <Link href={`/projects/${project.slug}`}>
-          View case study
-          <ArrowRight aria-hidden="true" size={16} />
-        </Link>
-        {project.demo ? (
-          <a href={project.demo} target="_blank" rel="noreferrer">
-            Live product
-            <ArrowUpRight aria-hidden="true" size={15} />
-          </a>
-        ) : project.repository ? (
-          <a href={project.repository} target="_blank" rel="noreferrer">
-            GitHub
-            <ArrowUpRight aria-hidden="true" size={15} />
-          </a>
-        ) : (
-          <span>
-            {project.status === "Automation workflow"
-              ? "Workflow documented"
-              : "Source not public"}
-          </span>
-        )}
-      </div>
+      ) : (
+        <div className="project-proof" aria-label={`${project.title} highlights`}>
+          <span>Key evidence</span>
+          <ul>
+            {project.highlights.slice(0, 3).map((highlight) => (
+              <li key={highlight}>{highlight}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </article>
   );
 }

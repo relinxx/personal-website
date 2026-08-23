@@ -10,30 +10,25 @@ export function SiteFooter() {
           <Link className="footer-name" href="/">
             Syed Muhammad Rehan
           </Link>
-          <p>Systems, Automation &amp; AI Software Engineer in Rawalpindi, Pakistan.</p>
+          <p>Software engineer building AI systems, automation, and data products.</p>
         </div>
-        <div className="social-links" aria-label="Social links">
+
+        <nav className="footer-links" aria-label="Footer links">
           <a href={profile.links.email} aria-label="Email Syed Muhammad Rehan">
-            <Mail aria-hidden="true" size={18} />
+            <Mail aria-hidden="true" size={17} />
+            Email
           </a>
-          <a
-            href={profile.links.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="LinkedIn profile"
-          >
-            <Linkedin aria-hidden="true" size={18} />
+          <a href={profile.links.linkedin} target="_blank" rel="noreferrer">
+            <Linkedin aria-hidden="true" size={17} />
+            LinkedIn
           </a>
-          <a
-            href={profile.links.github}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="GitHub profile"
-          >
-            <Github aria-hidden="true" size={18} />
+          <a href={profile.links.github} target="_blank" rel="noreferrer">
+            <Github aria-hidden="true" size={17} />
+            GitHub
           </a>
-        </div>
-        <p className="copyright">Copyright {new Date().getFullYear()} Rehan. Built with Next.js.</p>
+        </nav>
+
+        <p className="copyright">© {new Date().getFullYear()} Rehan</p>
       </div>
     </footer>
   );
