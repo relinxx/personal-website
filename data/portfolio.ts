@@ -223,6 +223,8 @@ export const projects: Project[] = [
     ],
     stack: ["Azure AI Search", "SharePoint", "Azure OpenAI", "Copilot Studio", "Azure SQL", "Teams"],
     status: "Client work",
+    image: "/projects/enterprise-knowledge-automation.png",
+    imageAlt: "Copilot Studio knowledge assistant retrieving cited evidence from the Watermark Constructions Azure AI Search index",
     featuredOrder: 1,
     featured: true,
   },
