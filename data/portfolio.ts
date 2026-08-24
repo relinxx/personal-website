@@ -51,11 +51,11 @@ export type Certification = {
 export const profile = {
   name: "Syed Muhammad Rehan",
   handle: "@relinxx",
-  role: "Systems, Automation & AI Software Engineer",
+  role: "AI Systems & Automation Engineer",
   location: "Rawalpindi, Pakistan",
   email: "rehankaneki@gmail.com",
   summary:
-    "I design automation, API integrations, AI workflows, and data systems that reduce manual work and remain understandable to the clients and teams using them.",
+    "I design AI workflows, API integrations, and data systems that reduce manual work while remaining observable, testable, and understandable to the teams using them.",
   availability:
     "Open to systems automation, solutions engineering, and applied AI roles with client-facing ownership.",
   links: {
@@ -168,7 +168,7 @@ export const projects: Project[] = [
     status: "Automation workflow",
     image: "/projects/multi-agent-rag-research-pipeline.png",
     imageAlt: "n8n multi-agent RAG research workflow with source retrieval, review, revision, and persistence branches",
-    featuredOrder: 1,
+    featuredOrder: 2,
     featured: true,
   },
   {
@@ -197,8 +197,7 @@ export const projects: Project[] = [
     status: "Automation workflow",
     image: "/projects/leadership-briefing-approval-workflow.png",
     imageAlt: "n8n leadership briefing workflow with validation, human approval, routing, and audit logging",
-    featuredOrder: 2,
-    featured: true,
+    featured: false,
   },
   {
     slug: "watermark-enterprise-automation",
@@ -224,7 +223,9 @@ export const projects: Project[] = [
     ],
     stack: ["Azure AI Search", "SharePoint", "Azure OpenAI", "Copilot Studio", "Azure SQL", "Teams"],
     status: "Client work",
-    featuredOrder: 3,
+    image: "/projects/enterprise-knowledge-automation.png",
+    imageAlt: "Copilot Studio knowledge assistant retrieving cited evidence from the Watermark Constructions Azure AI Search index",
+    featuredOrder: 1,
     featured: true,
   },
   {
@@ -240,7 +241,7 @@ export const projects: Project[] = [
     architecture: [
       "A curated technical document pack is split into section-aware passages with document and category metadata.",
       "The API ranks passages using TF-IDF retrieval with exact-term boosting.",
-      "Grounded synthesis attaches source IDs directly to answer statements.",
+      "Mistral synthesizes concise answers from retrieved evidence while citation checks reject unsupported source IDs.",
       "The Swiss editorial frontend lets users compare ranked evidence and inspect every cited passage.",
     ],
     highlights: [
@@ -253,13 +254,17 @@ export const projects: Project[] = [
       "Python",
       "FastAPI",
       "Next.js",
+      "Mistral",
       "TF-IDF",
       "Citation evaluation",
     ],
     status: "Public demo",
     repository: "https://github.com/relinxx/rag-evidence-studio",
     demo: "https://rag-evidence-studio.vercel.app",
-    featured: false,
+    image: "/projects/rag-evidence-studio.png",
+    imageAlt: "RAG Evidence Studio showing retrieved evidence and grounded answer inspection",
+    featuredOrder: 3,
+    featured: true,
   },
   {
     slug: "natural-language-sql-agent",
@@ -272,8 +277,9 @@ export const projects: Project[] = [
     role:
       "Built the Python agent, schema-aware query workflow, result explanation layer, and Azure deployment path.",
     architecture: [
-      "A user question is interpreted against database and schema context.",
-      "The agent generates a constrained SQL query for the appropriate Azure SQL source.",
+      "A user question is routed to the appropriate database and interpreted against bounded schema context.",
+      "Mistral generates structured SQL output for the selected source.",
+      "SQLGlot, table allowlists, SQLite query planning, read-only connections, and row limits validate execution.",
       "Results are transformed into a clear response for non-technical users.",
       "Azure Function App and Bot Service provide the production integration layer.",
     ],
@@ -283,11 +289,14 @@ export const projects: Project[] = [
       "Human-readable result explanations",
       "Azure Function App and Bot Service deployment",
     ],
-    stack: ["Python", "Azure SQL", "Azure Function App", "Azure Bot Service"],
+    stack: ["Python", "Mistral", "SQLGlot", "Azure SQL", "FastAPI", "Azure Bot Service"],
     status: "Public demo",
     repository: "https://github.com/relinxx/atlas-sql-agent",
     demo: "https://atlas-sql-agent.vercel.app",
-    featured: false,
+    image: "/projects/natural-language-sql-agent.png",
+    imageAlt: "Atlas SQL Agent translating a business question into validated SQL and results",
+    featuredOrder: 4,
+    featured: true,
   },
   {
     slug: "qa-application",
@@ -300,7 +309,7 @@ export const projects: Project[] = [
     role:
       "Built the agent loop, browser-tool integration, generated test workflow, real-time progress streaming, and path-safety controls.",
     architecture: [
-      "The LLM receives browser state and available actions through MCP.",
+      "Mistral receives browser state and available actions through MCP.",
       "It chooses Playwright actions, explores the application, and discovers flows.",
       "The system writes and executes Playwright tests.",
       "SSE streams progress and results to the interface.",
@@ -311,11 +320,13 @@ export const projects: Project[] = [
       "Generated and executable Playwright tests",
       "Real-time SSE progress",
     ],
-    stack: ["Next.js", "Node.js", "GPT-4o", "Playwright", "MCP", "SSE"],
+    stack: ["Next.js", "Node.js", "Mistral", "Playwright", "MCP", "SSE"],
     status: "Public demo",
     repository: "https://github.com/relinxx/qa_application",
     demo: "https://qa-agent-lab-iota.vercel.app",
-    featuredOrder: 4,
+    image: "/projects/autonomous-qa-agent.png",
+    imageAlt: "Autonomous QA Agent interface showing target configuration and live agent console",
+    featuredOrder: 5,
     featured: true,
   },
   {
@@ -360,7 +371,7 @@ export const projects: Project[] = [
       "A replayable sensor stream provides vibration, temperature, pressure, and load signals.",
       "Preprocessing creates aligned windows and normalized features for inference.",
       "A multi-task 1D CNN detects anomalies, classifies fault families, and estimates the near-term health trend.",
-      "The dashboard surfaces confidence, model metrics, and the evidence behind each alert.",
+      "The dashboard surfaces confidence, model metrics, and the evidence behind each alert, with a constrained Mistral operator brief.",
     ],
     highlights: [
       "Multi-task time-series inference",
@@ -368,11 +379,14 @@ export const projects: Project[] = [
       "ONNX-ready lightweight deployment",
       "Visible confidence and evaluation metrics",
     ],
-    stack: ["Python", "PyTorch", "ONNX", "Time-series ML", "pytest"],
+    stack: ["Python", "PyTorch", "ONNX", "Mistral", "Time-series ML", "pytest"],
     status: "Public demo",
     repository: "https://github.com/relinxx/Industrial-Sentinel",
     demo: "https://industrial-sentinel.vercel.app",
-    featured: false,
+    image: "/projects/industrial-sentinel.png",
+    imageAlt: "Industrial Sentinel operator interface with sensor replay and fault analysis",
+    featuredOrder: 6,
+    featured: true,
   },
   {
     slug: "bmo-interactive-ai-character",

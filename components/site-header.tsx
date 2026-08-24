@@ -1,14 +1,11 @@
 import Link from "next/link";
-import { ArrowUpRight } from "@/components/icons";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { profile } from "@/data/portfolio";
 
 const navigation = [
-  { label: "Delivery", href: "/#delivery" },
   { label: "Work", href: "/#work" },
-  { label: "Experience", href: "/#experience" },
-  { label: "Skills", href: "/#skills" },
+  { label: "About", href: "/#about" },
   { label: "Contact", href: "/#contact" },
+  { label: "Resume", href: profile.resume },
 ];
 
 export function SiteHeader() {
@@ -16,24 +13,16 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="shell header-inner">
         <Link className="wordmark" href="/" aria-label="Syed Muhammad Rehan home">
-          <span className="wordmark-title">Rehan</span>
+          <strong>{profile.name}</strong>
         </Link>
 
-        <nav className="desktop-nav" aria-label="Primary navigation">
+        <nav className="site-nav" aria-label="Primary navigation">
           {navigation.map((item) => (
             <Link href={item.href} key={item.href}>
               {item.label}
             </Link>
           ))}
         </nav>
-
-        <div className="header-actions">
-          <ThemeToggle />
-          <a className="header-cta" href={profile.links.email}>
-            Let&apos;s talk
-            <ArrowUpRight aria-hidden="true" size={16} />
-          </a>
-        </div>
       </div>
     </header>
   );

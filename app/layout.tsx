@@ -21,11 +21,11 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Syed Muhammad Rehan | Systems, Automation & AI Engineer",
+    default: "Syed Muhammad Rehan | AI Systems & Automation Engineer",
     template: "%s | Syed Muhammad Rehan",
   },
   description:
-    "Systems, automation, and AI software engineer building n8n workflows, API integrations, data systems, and client-ready applications.",
+    "Software engineer building production-minded AI systems, workflow automation, API integrations, and data products.",
   keywords: [
     "Syed Muhammad Rehan",
     "Systems Automation Engineer",
@@ -50,16 +50,16 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/",
     siteName: "Syed Muhammad Rehan",
-    title: "Syed Muhammad Rehan | Systems, Automation & AI Engineer",
+    title: "Syed Muhammad Rehan | AI Systems & Automation Engineer",
     description:
-      "Workflow automation, API integrations, client systems, and applied AI delivered from discovery through handover.",
+      "Production-minded AI systems, workflow automation, API integrations, and data products delivered from discovery through handover.",
     images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Syed Muhammad Rehan | Systems, Automation & AI Engineer",
+    title: "Syed Muhammad Rehan | AI Systems & Automation Engineer",
     description:
-      "Workflow automation, API integrations, client systems, and applied AI delivered from discovery through handover.",
+      "Production-minded AI systems, workflow automation, API integrations, and data products delivered from discovery through handover.",
     images: ["/opengraph-image"],
   },
   icons: {
@@ -69,8 +69,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#090912",
-  colorScheme: "dark",
+  themeColor: "#f2f2ef",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

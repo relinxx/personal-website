@@ -2,12 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  ArrowRight,
-  ArrowUpRight,
-  CheckCircle2,
-  Github,
-} from "@/components/icons";
+import { ArrowUpRight } from "@/components/icons";
 import { projects } from "@/data/portfolio";
 
 type ProjectPageProps = {
@@ -22,9 +17,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
 
-  if (!project) {
-    return {};
-  }
+  if (!project) return {};
 
   return {
     title: project.title,
@@ -43,127 +36,108 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
 
-  if (!project) {
-    notFound();
-  }
+  if (!project) notFound();
+
+  const moreProjects = projects
+    .filter((item) => item.slug !== project.slug && item.featured && item.image)
+    .slice(0, 3);
 
   return (
     <main id="main-content">
       <article className="case-study shell">
-        <Link className="back-link" href="/#work">
-          <ArrowRight aria-hidden="true" size={16} />
-          Back to selected work
-        </Link>
-
-        <header className="case-header">
-          <div>
-            <p className="eyebrow">{project.eyebrow}</p>
-            <h1>{project.title}</h1>
-            <p>{project.summary}</p>
-          </div>
-          <div className="case-status">
-            <span>{project.status}</span>
-            <p>
-              {project.demo
-                  ? "The deployed product is available publicly. Its case study documents the system without exposing credentials or private data."
-                : project.repository
-                  ? "Public source is available. The case study focuses on the engineering decisions and production concerns."
-                : "This work is documented without exposing private source code, credentials, or client data."}
-            </p>
-            {project.demo && (
-              <a href={project.demo} target="_blank" rel="noreferrer">
-                View live product
-                <ArrowUpRight aria-hidden="true" size={15} />
-              </a>
-            )}
-            {project.repository && (
-              <a href={project.repository} target="_blank" rel="noreferrer">
-                <Github aria-hidden="true" size={17} />
-                View repository
-                <ArrowUpRight aria-hidden="true" size={15} />
-              </a>
-            )}
-          </div>
-        </header>
+        <Link className="back-link" href="/#work">Back to projects</Link>
 
         {project.image ? (
-          <figure className="case-visual">
+          <figure className="case-hero-image">
             <Image
               src={project.image}
               alt={project.imageAlt ?? `${project.title} system overview`}
               width={1920}
               height={1080}
-              sizes="(max-width: 700px) 100vw, 1200px"
+              sizes="(max-width: 760px) 100vw, 1200px"
               priority
             />
-            <figcaption>
-              System view shared without credentials, private payloads, or client data.
-            </figcaption>
           </figure>
         ) : null}
 
-        <div className="case-grid">
-          <section className="case-panel">
-            <p className="eyebrow">The problem</p>
-            <h2>What the system needed to solve</h2>
+        <header className="case-intro">
+          <div>
+            <p className="section-label">{project.eyebrow} / {project.status}</p>
+            <h1>{project.title}</h1>
+          </div>
+          <div>
+            <p>{project.summary}</p>
+            <div className="case-links">
+              {project.demo && (
+                <a href={project.demo} target="_blank" rel="noreferrer">
+                  Live product <ArrowUpRight aria-hidden="true" size={14} />
+                </a>
+              )}
+              {project.repository && (
+                <a href={project.repository} target="_blank" rel="noreferrer">
+                  Repository <ArrowUpRight aria-hidden="true" size={14} />
+                </a>
+              )}
+            </div>
+          </div>
+        </header>
+
+        <div className="case-two-column">
+          <section>
+            <p className="section-label">The problem</p>
+            <h2>What needed to change</h2>
             <p>{project.problem}</p>
           </section>
-          <section className="case-panel">
-            <p className="eyebrow">My role</p>
+          <section>
+            <p className="section-label">My contribution</p>
             <h2>What I owned</h2>
             <p>{project.role}</p>
           </section>
         </div>
 
-        <section className="case-section">
-          <div className="case-section-heading">
-            <p className="eyebrow">Architecture</p>
-            <h2>How the pieces work together</h2>
-          </div>
+        <section className="case-block">
+          <header className="rule-heading">
+            <h2>System Architecture</h2>
+          </header>
           <ol className="architecture-list">
             {project.architecture.map((step, index) => (
               <li key={step}>
-                <span>0{index + 1}</span>
+                <span>{String(index + 1).padStart(2, "0")}</span>
                 <p>{step}</p>
               </li>
             ))}
           </ol>
         </section>
 
-        <section className="case-section case-outcomes">
-          <div className="case-section-heading">
-            <p className="eyebrow">Highlights</p>
-            <h2>What makes this work meaningful</h2>
-          </div>
-          <ul>
+        <section className="case-block">
+          <header className="rule-heading">
+            <h2>Highlights</h2>
+          </header>
+          <div className="highlight-grid">
             {project.highlights.map((highlight) => (
-              <li key={highlight}>
-                <CheckCircle2 aria-hidden="true" size={18} />
-                {highlight}
-              </li>
+              <p key={highlight}>{highlight}</p>
             ))}
-          </ul>
-        </section>
-
-        <section className="case-section case-stack">
-          <div className="case-section-heading">
-            <p className="eyebrow">Stack</p>
-            <h2>Tools used</h2>
           </div>
-          <ul className="tag-list">
-            {project.stack.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+          <p className="stack-line">{project.stack.join(" · ")}</p>
         </section>
 
-        <div className="case-next">
-          <p>Looking for an engineer who can own the workflow and the handover?</p>
-          <a href="mailto:rehankaneki@gmail.com">
-            Start a conversation
-            <ArrowUpRight aria-hidden="true" size={16} />
-          </a>
-        </div>
+        <section className="more-projects">
+          <h2>More Projects</h2>
+          <div>
+            {moreProjects.map((item) => (
+              <Link href={`/projects/${item.slug}`} key={item.slug}>
+                <Image
+                  src={item.image!}
+                  alt={item.imageAlt ?? `${item.title} interface`}
+                  width={640}
+                  height={400}
+                  sizes="(max-width: 760px) 100vw, 30vw"
+                />
+                <span>{item.title}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
       </article>
     </main>
   );
