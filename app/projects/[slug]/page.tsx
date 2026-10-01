@@ -65,14 +65,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <span>{project.status}</span>
             <p>
               {project.demo
-                  ? "The deployed product is available publicly. Its case study documents the system without exposing credentials or private data."
+                  ? "A public project demo accompanies this case study. It illustrates the implementation separately from private client systems."
                 : project.repository
                   ? "Public source is available. The case study focuses on the engineering decisions and production concerns."
                 : "This work is documented without exposing private source code, credentials, or client data."}
             </p>
             {project.demo && (
               <a href={project.demo} target="_blank" rel="noreferrer">
-                View live product
+                Explore demo
                 <ArrowUpRight aria-hidden="true" size={15} />
               </a>
             )}

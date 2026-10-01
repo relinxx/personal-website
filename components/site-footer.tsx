@@ -10,7 +10,7 @@ export function SiteFooter() {
           <Link className="footer-name" href="/">
             Syed Muhammad Rehan
           </Link>
-          <p>Systems, Automation &amp; AI Software Engineer in Rawalpindi, Pakistan.</p>
+          <p>AI &amp; Software Engineer · Rawalpindi, Pakistan.</p>
         </div>
         <div className="social-links" aria-label="Social links">
           <a href={profile.links.email} aria-label="Email Syed Muhammad Rehan">

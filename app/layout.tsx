@@ -21,11 +21,11 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Syed Muhammad Rehan | Systems, Automation & AI Engineer",
+    default: "Syed Muhammad Rehan | AI & Software Engineer",
     template: "%s | Syed Muhammad Rehan",
   },
   description:
-    "Systems, automation, and AI software engineer building n8n workflows, API integrations, data systems, and client-ready applications.",
+    "AI and software engineer building agentic workflows, enterprise RAG, guarded data assistants, and dependable API integrations.",
   keywords: [
     "Syed Muhammad Rehan",
     "Systems Automation Engineer",
@@ -50,16 +50,16 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/",
     siteName: "Syed Muhammad Rehan",
-    title: "Syed Muhammad Rehan | Systems, Automation & AI Engineer",
+    title: "Syed Muhammad Rehan | AI & Software Engineer",
     description:
-      "Workflow automation, API integrations, client systems, and applied AI delivered from discovery through handover.",
+      "Agentic AI, enterprise knowledge systems, and software engineering from architecture through evaluation and deployment.",
     images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Syed Muhammad Rehan | Systems, Automation & AI Engineer",
+    title: "Syed Muhammad Rehan | AI & Software Engineer",
     description:
-      "Workflow automation, API integrations, client systems, and applied AI delivered from discovery through handover.",
+      "Agentic AI, enterprise knowledge systems, and software engineering from architecture through evaluation and deployment.",
     images: ["/opengraph-image"],
   },
   icons: {
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#090912",
+  themeColor: "#111310",
   colorScheme: "dark",
 };
 
@@ -104,11 +104,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   };
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${geist.variable} ${geistMono.variable}`}>
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>
+        <script dangerouslySetInnerHTML={{ __html: "try{document.documentElement.dataset.theme=localStorage.getItem('theme')==='light'?'light':'dark'}catch(e){}" }} />
         <SiteHeader />
         {children}
         <SiteFooter />

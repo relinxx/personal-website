@@ -1,38 +1,10 @@
 "use client";
-
-import { useState } from "react";
-import { Moon, Sun } from "@/components/icons";
-
-type Theme = "dark" | "light";
-
+import { useSyncExternalStore } from "react";
+import { Moon, Sun } from "lucide-react";
+function subscribe(callback: () => void) { window.addEventListener("portfolio-theme", callback); return () => window.removeEventListener("portfolio-theme", callback); }
+function snapshot() { return document.documentElement.dataset.theme === "light" ? "light" : "dark"; }
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window === "undefined") {
-      return "dark";
-    }
-
-    const stored = window.localStorage.getItem("theme");
-    const initialTheme: Theme = stored === "light" ? "light" : "dark";
-    document.documentElement.dataset.theme = initialTheme;
-    return initialTheme;
-  });
-
-  const toggleTheme = () => {
-    const nextTheme: Theme = theme === "dark" ? "light" : "dark";
-    setTheme(nextTheme);
-    document.documentElement.dataset.theme = nextTheme;
-    window.localStorage.setItem("theme", nextTheme);
-  };
-
-  return (
-    <button
-      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-      className="theme-toggle"
-      onClick={toggleTheme}
-      type="button"
-    >
-      {theme === "dark" ? <Sun aria-hidden="true" size={16} /> : <Moon aria-hidden="true" size={16} />}
-      <span>{theme === "dark" ? "Light" : "Dark"}</span>
-    </button>
-  );
+ const theme = useSyncExternalStore(subscribe, snapshot, () => "dark");
+ function toggle() { const next = theme === "dark" ? "light" : "dark"; document.documentElement.dataset.theme = next; try { localStorage.setItem("theme", next); } catch { /* Theme works without storage. */ } window.dispatchEvent(new Event("portfolio-theme")); }
+ return <button className="theme-toggle" type="button" onClick={toggle} aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}>{theme === "dark" ? <Sun size={17} aria-hidden="true" /> : <Moon size={17} aria-hidden="true" />}</button>;
 }

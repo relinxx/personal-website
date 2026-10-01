@@ -51,16 +51,16 @@ export type Certification = {
 export const profile = {
   name: "Syed Muhammad Rehan",
   handle: "@relinxx",
-  role: "Systems, Automation & AI Software Engineer",
+  role: "AI & Software Engineer",
   location: "Rawalpindi, Pakistan",
   email: "rehankaneki@gmail.com",
   summary:
-    "I design automation, API integrations, AI workflows, and data systems that reduce manual work and remain understandable to the clients and teams using them.",
+    "I build agentic AI workflows, retrieval systems, APIs, and integrations, with ownership from architecture and evaluation through deployment and handover.",
   availability:
-    "Open to systems automation, solutions engineering, and applied AI roles with client-facing ownership.",
+    "Open to agentic AI, AI engineering, backend development, and systems automation roles.",
   links: {
     github: "https://github.com/relinxx",
-    linkedin: "https://www.linkedin.com/in/relinxx",
+    linkedin: "https://www.linkedin.com/in/syed-muhammad-rehan-relinxx/",
     email: "mailto:rehankaneki@gmail.com",
   },
   resume: "/Syed-Muhammad-Rehan-Resume.pdf",
@@ -69,12 +69,12 @@ export const profile = {
 
 export const proofPoints = [
   {
-    value: "1.5 years",
-    label: "Professional software, automation, and applied AI experience",
+    value: "3 databases",
+    label: "Guarded natural-language analytics across Azure SQL",
   },
   {
-    value: "End-to-end",
-    label: "Discovery, implementation, QA, deployment, walkthroughs, and handover",
+    value: "15-case evaluation",
+    label: "Improved marked passes from 11/15 to 15/15",
   },
   {
     value: "20,934",
@@ -111,12 +111,24 @@ export const deliverySteps = [
 
 export const experiences: Experience[] = [
   {
+    company: "Builders of Authority",
+    role: "Senior Systems Automation Specialist",
+    period: "Sep 2026 - Present",
+    location: "Remote",
+    summary: "Own CRM integration delivery and quality assurance across lead capture, client onboarding, sales attribution, and operational reporting.",
+    highlights: [
+      "Audit WhatConverts-to-Salesforce synchronization through Zapier execution history and destination-record validation.",
+      "Investigate missing leads, duplicate customers, test-data exceptions, and conditional routing to identify appropriate recovery actions.",
+      "Configure GoHighLevel subaccounts and coordinate integration requirements, QA evidence, dependencies, and technical handover through ClickUp.",
+    ],
+  },
+  {
     company: "Logic Powered Solutions",
     role: "Software Engineer",
-    period: "Aug 2025 - Present",
+    period: "Aug 2025 - 31 Aug 2026",
     location: "F-5, Islamabad, Pakistan",
     summary:
-      "Owning client-facing automation and applied AI systems from technical discovery through implementation, QA, deployment, walkthroughs, and handover.",
+      "Owned client-facing automation and applied AI systems from technical discovery through implementation, QA, deployment, walkthroughs, and handover.",
     highlights: [
       "Served as sole implementation engineer for Watermark Constructions' paid knowledge and data automation engagement while project management was handled separately.",
       "Integrated SharePoint, Azure AI Search, Azure OpenAI, Copilot Studio, and Teams; scaled the final vector index to 20,934 indexed records.",
@@ -141,6 +153,16 @@ export const experiences: Experience[] = [
 ];
 
 export const projects: Project[] = [
+  {
+    slug: "boa-crm-integrations", title: "CRM Integration & Revenue Attribution",
+    eyebrow: "Builders of Authority / systems delivery",
+    summary: "Lead synchronization, CRM configuration, and integration QA across WhatConverts, Salesforce, Zapier, and GoHighLevel.",
+    problem: "Client operations depend on consistent lead and sales data across multiple platforms. Missing records, duplicates, and routing exceptions need to be diagnosed before reporting can be trusted.",
+    role: "Senior Systems Automation Specialist responsible for integration delivery, execution tracing, destination-record validation, CRM configuration, and technical coordination.",
+    architecture: ["Trace WhatConverts lead events through Zapier routing and step-level execution outcomes.", "Validate destination records in Salesforce and reconcile missing leads, duplicate customers, and test-data exceptions.", "Check quote and sales-value attribution paths and distinguish completed updates from halted lookups.", "Configure GoHighLevel subaccounts and document requirements, QA findings, access dependencies, and follow-up in ClickUp."],
+    highlights: ["Traceable QA evidence across source events and destination records", "Explicit handling of missing data, duplicates, and routing exceptions", "Client-account configuration and operational reporting support", "Technical documentation and cross-platform troubleshooting"],
+    stack: ["Zapier", "GoHighLevel", "Salesforce", "WhatConverts", "ClickUp", "Webhooks"], status: "Client work", featured: true, featuredOrder: 4,
+  },
   {
     slug: "multi-agent-research-automation",
     title: "Multi-Agent Research Automation",
@@ -349,7 +371,7 @@ export const projects: Project[] = [
   {
     slug: "industrial-sentinel",
     title: "Industrial Sentinel",
-    eyebrow: "Production machine learning",
+    eyebrow: "Applied machine learning",
     summary:
       "A condition-monitoring system that detects abnormal sensor behavior, classifies likely faults, and forecasts equipment health from multivariate time-series data.",
     problem:
@@ -545,7 +567,7 @@ export const certifications: Certification[] = [
 export const education = {
   school: "FAST University",
   degree: "B.Sc. Software Engineering",
-  period: "2021 - 2026",
+  period: "2022 - 2026",
   project:
     "Final Year Project: GeoVision, a multi-agent AI land-use planning system combining XGBoost, RAG, GIS optimization, FastAPI, and React.",
 } as const;

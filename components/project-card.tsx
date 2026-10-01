@@ -1,71 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "@/components/icons";
+import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/data/portfolio";
-
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
-  return (
-    <article className="project-card" data-reveal>
-      <div className="project-number" aria-hidden="true">
-        0{index + 1}
-      </div>
-      <div className="project-card-top">
-        <div>
-          <p className="eyebrow">{project.eyebrow}</p>
-          <h3>{project.title}</h3>
-        </div>
-        <span className={`status-badge status-${project.status.toLowerCase().replace(" ", "-")}`}>
-          {project.status}
-        </span>
-      </div>
-
-      {project.image ? (
-        <Link
-          className="project-media"
-          href={`/projects/${project.slug}`}
-          aria-label={`View ${project.title} case study`}
-        >
-          <Image
-            src={project.image}
-            alt={project.imageAlt ?? `${project.title} system overview`}
-            width={1600}
-            height={900}
-            sizes="(max-width: 700px) 100vw, 50vw"
-          />
-        </Link>
-      ) : null}
-
-      <p className="project-summary">{project.summary}</p>
-
-      <ul className="tag-list" aria-label={`${project.title} technologies`}>
-        {project.stack.slice(0, 5).map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-
-      <div className="project-links">
-        <Link href={`/projects/${project.slug}`}>
-          View case study
-          <ArrowRight aria-hidden="true" size={16} />
-        </Link>
-        {project.demo ? (
-          <a href={project.demo} target="_blank" rel="noreferrer">
-            Live product
-            <ArrowUpRight aria-hidden="true" size={15} />
-          </a>
-        ) : project.repository ? (
-          <a href={project.repository} target="_blank" rel="noreferrer">
-            GitHub
-            <ArrowUpRight aria-hidden="true" size={15} />
-          </a>
-        ) : (
-          <span>
-            {project.status === "Automation workflow"
-              ? "Workflow documented"
-              : "Source not public"}
-          </span>
-        )}
-      </div>
-    </article>
-  );
+ return <article className={`project-card project-tone-${index % 3}`}>
+ <Link className="project-art" href={`/projects/${project.slug}`} aria-label={`Explore ${project.title}`}><div className="art-header"><span>BUILD / 0{index + 1}</span><span>{project.status}</span></div><div className="project-orbit" aria-hidden="true"><div className="orbit-ring ring-one" /><div className="orbit-ring ring-two" /><div className="orbit-axis" /><span className="orbit-satellite sat-one" /><span className="orbit-satellite sat-two" /><div className="orbit-core">{["RAG", "QA", "AGENT", "CRM", "HITL", "GEO"][index % 6]}<small>{["KNOWLEDGE", "TEST SYSTEM", "RESEARCH", "INTEGRATIONS", "APPROVAL", "INTELLIGENCE"][index % 6]}</small></div></div><div className="art-footer"><span>{project.stack.slice(0, 2).join(" / ")}</span><span className="round-arrow"><ArrowUpRight size={19} /></span></div></Link>
+ <div className="project-copy"><p className="eyebrow">{project.eyebrow}</p><h3><Link href={`/projects/${project.slug}`}>{project.title}</Link></h3><p>{project.summary}</p><ul className="tag-list">{project.stack.slice(0, 4).map(item => <li key={item}>{item}</li>)}</ul><Link className="text-link" href={`/projects/${project.slug}`}>Engineering case study <ArrowUpRight size={16} /></Link></div></article>;
 }
