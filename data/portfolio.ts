@@ -251,10 +251,10 @@ export const projects: Project[] = [
   },
   {
     slug: "rag-evidence-studio",
-    title: "RAG Evidence Studio",
+    title: "RAG Evidence Studio / Watermarks RAG Desk",
     eyebrow: "Transparent knowledge retrieval",
     summary:
-      "A standalone research workspace that exposes ranked passages, relevance scores, citations, and grounded answer synthesis instead of hiding retrieval behind a chat box.",
+      "A retrieval interface focused on inspectable evidence. The public TF-IDF prototype and the evolved Watermarks RAG Desk deployment are documented separately below.",
     problem:
       "RAG demos often show only the final answer, making it impossible to judge whether retrieval was relevant, citations were correct, or the model was grounded.",
     role:

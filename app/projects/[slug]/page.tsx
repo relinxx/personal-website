@@ -9,6 +9,7 @@ import {
   Github,
 } from "@/components/icons";
 import { projects } from "@/data/portfolio";
+import { ProjectEvidence } from "@/components/project-evidence";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -90,6 +91,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             )}
           </div>
         </header>
+
+        <ProjectEvidence slug={project.slug} />
 
         {project.image ? (
           <figure className="case-visual">
