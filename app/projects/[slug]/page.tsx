@@ -83,6 +83,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <ArrowUpRight aria-hidden="true" size={15} />
               </a>
             )}
+            {project.slug === "boa-crm-integrations" && (
+              <Link href="/reports/builders-of-authority">
+                Read the work report <ArrowUpRight aria-hidden="true" size={15} />
+              </Link>
+            )}
           </div>
         </header>
 
