@@ -22,7 +22,7 @@ export default function Home() {
     <p className="hero-description">Enterprise knowledge systems, AI agents, and dependable business integrations. I own the work from architecture and validation to deployment and handover.</p>
     <p className="hero-proof">Watermark delivery: <strong>20,934 indexed records</strong> · <strong>3 Azure SQL databases</strong></p>
     <div className="hero-actions"><a className="button button-primary" href="#work">Explore selected work <ArrowDown size={18} aria-hidden="true" /></a><a className="button button-secondary" href={profile.resume} target="_blank" rel="noreferrer">Résumé · PDF <Download size={18} aria-hidden="true" /></a></div>
-    <div className="hero-person"><Image src="/rehan-profile-suit.png" width={48} height={48} alt="Syed Muhammad Rehan" priority /><div><strong>Engineering across the whole workflow.</strong><span>Senior Systems Automation Specialist · Builders of Authority</span></div></div>
+    <div className="hero-person"><Image src="/rehan-profile-suit.png" width={48} height={48} alt="Syed Muhammad Rehan" priority /><div><strong>Engineering across the whole workflow.</strong><span>Systems Automation Specialist · Builders of Authority</span></div></div>
    </div><SystemCanvas /></div>
    <div className="hero-bottom"><span>Client systems. Documented decisions. Working software.</span><Link href="/projects/watermark-enterprise-automation">Start with Watermark <ArrowUpRight size={16} aria-hidden="true" /></Link></div>
   </section>

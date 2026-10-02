@@ -1,10 +1,23 @@
 import Image from "next/image";
+import { Database, FileText, MessageSquare, Search, ShieldCheck, Braces } from "lucide-react";
+import architectureStyles from "./watermark-architecture.module.css";
 
 export function WatermarkArchitecture({ compact = false }: { compact?: boolean }) {
-  return <div className={`watermark-architecture ${compact ? "compact" : ""}`} aria-label="Separate knowledge retrieval and guarded analytics paths">
-    <div className="architecture-lane"><p>01 / KNOWLEDGE</p><ol><li><strong>SharePoint</strong><span>Company content</span></li><li><strong>Azure AI Search</strong><span>Incremental indexing</span></li><li><strong>Copilot + Teams</strong><span>Grounded answers · citations</span></li></ol></div>
-    <div className="architecture-lane"><p>02 / ANALYTICS</p><ol><li><strong>Business question</strong><span>Schema-aware routing</span></li><li><strong>Python validation</strong><span>Read-only · limits · retries</span></li><li><strong>3 Azure SQL sources</strong><span>Results through Teams</span></li></ol></div>
-    <p className="architecture-footnote">Azure delivery · Key Vault · evaluation · technical handover</p>
+  return <div className={`${architectureStyles.blueprint} ${compact ? architectureStyles.compact : ""}`} aria-label="Separate knowledge retrieval and guarded analytics paths">
+    <div className={architectureStyles.top}><span>WATERMARK / SYSTEM BLUEPRINT</span><Braces size={17} aria-hidden="true" /></div>
+    <div className={architectureStyles.lanes}>
+      <div className={architectureStyles.lane}><p><span>01</span> Knowledge retrieval</p><ol>
+        <li><FileText size={18} aria-hidden="true" /><div><strong>SharePoint</strong><span>Company content</span></div></li>
+        <li><Search size={18} aria-hidden="true" /><div><strong>Azure AI Search</strong><span>Retrieve relevant context</span></div></li>
+        <li><MessageSquare size={18} aria-hidden="true" /><div><strong>Copilot + Teams</strong><span>Grounded answers · citations</span></div></li>
+      </ol></div>
+      <div className={architectureStyles.lane}><p><span>02</span> Guarded analytics</p><ol>
+        <li><MessageSquare size={18} aria-hidden="true" /><div><strong>Business question</strong><span>Schema-aware routing</span></div></li>
+        <li><ShieldCheck size={18} aria-hidden="true" /><div><strong>Python validation</strong><span>Read-only · limits · retries</span></div></li>
+        <li><Database size={18} aria-hidden="true" /><div><strong>3 Azure SQL sources</strong><span>Results through Teams</span></div></li>
+      </ol></div>
+    </div>
+    <p className={architectureStyles.footnote}><ShieldCheck size={14} aria-hidden="true" />Azure deployment · Key Vault · evaluated delivery</p>
   </div>;
 }
 export function ProjectEvidence({ slug }: { slug: string }) {

@@ -112,7 +112,7 @@ export const deliverySteps = [
 export const experiences: Experience[] = [
   {
     company: "Builders of Authority",
-    role: "Senior Systems Automation Specialist",
+    role: "Systems Automation Specialist",
     period: "Sep 2026 - Present",
     location: "Remote",
     summary: "Own CRM integration delivery and quality assurance across lead capture, client onboarding, sales attribution, and operational reporting.",
@@ -158,7 +158,7 @@ export const projects: Project[] = [
     eyebrow: "Builders of Authority / systems delivery",
     summary: "Lead synchronization, CRM configuration, and integration QA across WhatConverts, Salesforce, Zapier, and GoHighLevel.",
     problem: "Client operations depend on consistent lead and sales data across multiple platforms. Missing records, duplicates, and routing exceptions need to be diagnosed before reporting can be trusted.",
-    role: "Senior Systems Automation Specialist responsible for integration delivery, execution tracing, destination-record validation, CRM configuration, and technical coordination.",
+    role: "Systems Automation Specialist responsible for integration delivery, execution tracing, destination-record validation, CRM configuration, and technical coordination.",
     architecture: ["Trace WhatConverts lead events through Zapier routing and step-level execution outcomes.", "Validate destination records in Salesforce and reconcile missing leads, duplicate customers, and test-data exceptions.", "Check quote and sales-value attribution paths and distinguish completed updates from halted lookups.", "Configure GoHighLevel subaccounts and document requirements, QA findings, access dependencies, and follow-up in ClickUp."],
     highlights: ["Traceable QA evidence across source events and destination records", "Explicit handling of missing data, duplicates, and routing exceptions", "Client-account configuration and operational reporting support", "Technical documentation and cross-platform troubleshooting"],
     stack: ["Zapier", "GoHighLevel", "Salesforce", "WhatConverts", "ClickUp", "Webhooks"], status: "Client work", featured: true, featuredOrder: 4,
