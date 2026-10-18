@@ -42,34 +42,34 @@ const watermarkSlides = [
 
 const boaProofSlides = [
   {
-    caption: "01 / 06 · Salesforce Lead Attribution & Source Verification",
-    tag: "Salesforce CRM",
-    src: "/work/builders-of-authority/11-salesforce-lead-detail.png",
-  },
-  {
-    caption: "02 / 06 · Zapier Field Mapping (WhatConverts → Salesforce)",
+    caption: "01 / 06 · Zapier Quote-Value Routing & WhatConverts Matching",
     tag: "Zapier Automation",
-    src: "/work/builders-of-authority/09-zapier-field-mapping.png",
+    src: "/reports/boa/02-zapier-quote-workflow.jpg",
   },
   {
-    caption: "03 / 06 · Zapier Execution History & Payload Audit",
-    tag: "Webhook Tracing",
-    src: "/work/builders-of-authority/10-zapier-run-history.png",
+    caption: "02 / 06 · Stateful Review Monitoring & Silence Check in n8n",
+    tag: "n8n Workflow",
+    src: "/reports/boa/03-n8n-review-monitor.jpg",
   },
   {
-    caption: "04 / 06 · Cross-System Quote & Sales Attribution Audit",
-    tag: "Revenue QA",
-    src: "/work/builders-of-authority/13-sales-to-lead-sheet.png",
+    caption: "03 / 06 · Saved Execution Evidence & Webhook Trace",
+    tag: "Execution Proof",
+    src: "/reports/boa/04-n8n-execution-evidence.jpg",
   },
   {
-    caption: "05 / 06 · GoHighLevel Subaccount Opportunity Pipeline",
+    caption: "04 / 06 · GoHighLevel Review Heartbeat & CRM Pilot",
     tag: "GoHighLevel",
-    src: "/work/builders-of-authority/15-ghl-opportunities-pipeline.png",
+    src: "/reports/boa/05-ghl-review-heartbeat.jpg",
   },
   {
-    caption: "06 / 06 · GoHighLevel Automated Lead & Booking Workflows",
-    tag: "GHL Workflows",
-    src: "/work/builders-of-authority/16-ghl-workflows-list.png",
+    caption: "05 / 06 · Multi-Account Zapier Estate & Routing Architecture",
+    tag: "Systems Estate",
+    src: "/reports/boa/08-zapier-estate-overview.jpg",
+  },
+  {
+    caption: "06 / 06 · ClickUp Lead Attribution QA & Reconciliation Record",
+    tag: "ClickUp QA",
+    src: "/reports/boa/09-clickup-triad-qa.jpg",
   },
 ];
 

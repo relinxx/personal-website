@@ -18,8 +18,8 @@ const showcaseSlides = [
     title: "WhatConverts → Zapier → Salesforce Attribution",
     subtitle: "20-view public systems & CRM operations proof report",
     href: "/reports/builders-of-authority",
-    image: "/work/builders-of-authority/11-salesforce-lead-detail.png",
-    secondaryImage: "/work/builders-of-authority/08-zapier-table-records.png",
+    image: "/reports/boa/02-zapier-quote-workflow.jpg",
+    secondaryImage: "/reports/boa/08-zapier-estate-overview.jpg",
     bg: "linear-gradient(155deg,#071426 0%,#0f2942 55%,#09131c 100%)",
   },
   {
@@ -28,28 +28,28 @@ const showcaseSlides = [
     title: "Enterprise RAG + Guardrailed 3-DB NL2SQL",
     subtitle: "20,934 indexed records · 15/15 benchmark pass rate",
     href: "/projects/watermark-enterprise-automation",
-    image: "/work/builders-of-authority/09-zapier-field-mapping.png",
-    secondaryImage: "/work/builders-of-authority/10-zapier-run-history.png",
+    image: "/reports/boa/14-state-floors-sales-workflow.jpg",
+    secondaryImage: "/reports/boa/09-clickup-triad-qa.jpg",
     bg: "linear-gradient(155deg,#071f18 0%,#0d382b 55%,#071510 100%)",
   },
   {
-    badge: "Workflow · n8n + GPT-4o + Postgres",
-    year: "2025 · Live Demo",
+    badge: "Workflow · n8n + FastAPI + Qdrant",
+    year: "2025 · Live System",
     title: "Multi-Agent Research & Content Pipeline",
     subtitle: "n8n · FastAPI · Qdrant · PostgreSQL orchestration",
     href: "/projects/multi-agent-research-automation",
-    image: "/projects/n8n-workflow.png",
-    secondaryImage: "/projects/slack-approval.png",
+    image: "/projects/multi-agent-rag-research-pipeline.png",
+    secondaryImage: "/projects/leadership-briefing-approval-workflow.png",
     bg: "linear-gradient(155deg,#1d1128 0%,#2d1b4e 55%,#120b1d 100%)",
   },
   {
-    badge: "CRM · GoHighLevel + ClickUp",
+    badge: "CRM · GoHighLevel + n8n",
     year: "2026 · Production",
-    title: "GHL Subaccount Automation & Pipeline Ops",
-    subtitle: "Lead capture, calendar booking & custom domain setup",
+    title: "GHL Subaccount Automation & Review Monitoring",
+    subtitle: "Lead capture, review heartbeat & webhook alerts",
     href: "/reports/builders-of-authority",
-    image: "/work/builders-of-authority/15-ghl-opportunities-pipeline.png",
-    secondaryImage: "/work/builders-of-authority/16-ghl-workflows-list.png",
+    image: "/reports/boa/05-ghl-review-heartbeat.jpg",
+    secondaryImage: "/reports/boa/03-n8n-review-monitor.jpg",
     bg: "linear-gradient(155deg,#231407 0%,#3f230d 55%,#160d05 100%)",
   },
 ];
@@ -215,7 +215,7 @@ export function BentoHero() {
             </div>
           </div>
 
-          <span className="island-pill inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-medium text-white">
+          <span className="island-pill">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#30d158] opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#30d158]" />
@@ -378,10 +378,7 @@ export function BentoHero() {
               className={`cycle-item ${idx === cycleIndex ? "is-active" : ""}`}
             >
               <div className="cycle-kicker">{item.title}</div>
-              <div
-                className="cycle-big"
-                style={{ color: item.badgeColor }}
-              >
+              <div className="cycle-big" style={{ color: item.badgeColor }}>
                 {item.badge}
               </div>
               <p className="cycle-sub">{item.subtitle}</p>
