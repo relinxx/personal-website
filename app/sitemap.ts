@@ -1,28 +1,14 @@
 import type { MetadataRoute } from "next";
 import { projects } from "@/data/portfolio";
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://relinxx.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://relinxx.vercel.app";
+const demoSlugs = ["watermark", "qa", "sentinel", "geovision"] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
-    {
-      url: siteUrl,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-    ...projects.map((project) => ({
-      url: `${siteUrl}/projects/${project.slug}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    })),
-    {
-      url: `${siteUrl}/reports/builders-of-authority`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+    { url: siteUrl, lastModified: new Date(), changeFrequency: "monthly", priority: 1 },
+    ...projects.map((project) => ({ url: siteUrl + "/projects/" + project.slug, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 })),
+    ...demoSlugs.map((slug) => ({ url: siteUrl + "/demos/" + slug, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.85 })),
+    { url: siteUrl + "/reports/builders-of-authority", lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
   ];
 }

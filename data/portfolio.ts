@@ -428,7 +428,7 @@ export const projects: Project[] = [
     status: "Public demo",
     statusState: "shipped",
     repository: "https://github.com/relinxx/qa_application",
-    demo: "https://qa-agent-lab-iota.vercel.app",
+    demo: "/demos/qa",
     image: "/projects/qa-agent-lab.png",
     imageAlt: "QA Agent Lab authentication scenario and sandbox boundaries",
     metrics: [
@@ -571,7 +571,7 @@ export const projects: Project[] = [
     status: "Public demo",
     statusState: "shipped",
     repository: "https://github.com/relinxx/geovision",
-    demo: "https://geovision-eight-pi-72.vercel.app",
+    demo: "/demos/geovision",
     image: "/projects/geovision-preview.png",
     imageAlt: "GeoVision multi-agent geospatial AI planning workspace",
     metrics: [
@@ -611,7 +611,7 @@ export const projects: Project[] = [
     status: "Public demo",
     statusState: "shipped",
     repository: "https://github.com/relinxx/rag-evidence-studio",
-    demo: "https://rag-evidence-studio.vercel.app",
+    demo: "/demos/watermark",
     featured: false,
   },
   {
@@ -692,7 +692,7 @@ export const projects: Project[] = [
     status: "Public demo",
     statusState: "shipped",
     repository: "https://github.com/relinxx/Industrial-Sentinel",
-    demo: "https://industrial-sentinel.vercel.app",
+    demo: "/demos/sentinel",
     featured: false,
   },
   {
