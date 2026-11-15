@@ -11,6 +11,7 @@
     setupContactModal();
     setupCompanyTextReplacement();
     setFooterYear();
+    registerServiceWorker();
   }
 
   function setupNoticeBanner() {
@@ -112,4 +113,11 @@
     var y = document.getElementById('y');
     if (y) y.textContent = new Date().getFullYear();
   }
-})();
+
+  function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then(registration => console.log('SW registered'))
+        .catch(error => console.log('SW registration failed'));
+    }
+  }
