@@ -1,0 +1,21 @@
+{
+  "name": "Syed Muhammad Rehan - Portfolio",
+  "short_name": "relinxx",
+  "description": "Portfolio of Syed Muhammad Rehan (@relinxx), AI/ML Intern and Full Stack Developer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#030014",
+  "theme_color": "#030014",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/profile_pic-CaSYlVwb.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "developer", "ai-ml"],
+  "lang": "en",
+  "dir": "ltr"
+}
